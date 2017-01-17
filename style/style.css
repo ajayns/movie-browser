@@ -1,0 +1,18 @@
+# Dependencies
+/bower_components/
+/node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+.npm
+
+# Temporary files
+/temp/
