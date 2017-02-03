@@ -1,0 +1,84 @@
+<div ng-if="!details">
+  <div class="ui active dimmer">
+    <div class="ui text loader"></div>
+  </div>
+</div>
+
+<div ng-if="details.Response==='True'">
+
+  <div class="table hor-center">
+    <div class="row">
+
+      <div class="three col">
+        <img alt="Poster" class="img-poster" ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}" />
+      </div>
+
+      <div class="seven col vert-center">
+
+        <h2 class="">{{details.Title | uppercase}} </h2>
+        <i>({{details.Year}})</i>
+        <br/>
+        <div class="row invert-text mov-info">
+          <p class="col"><b>Genre:</b> {{details.Genre}}
+            <br/><b>Runtime:</b> {{details.Runtime}}</p>
+          <p class="col"><b>IMDb Rating:</b> {{details.imdbRating}}
+            <br/><b>Rotten Tomatoes:</b> {{details.tomatoRating}}</p>
+        </div>
+
+        <div class="hide-mob row invert-text">
+          {{details.Plot}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table row cont-body no-borad">
+    <div class="col seven">
+
+      <div class="cont-pad show-mob">
+        <h3 class="">Plot</h3>
+        <p>{{details.Plot}}</p>
+      </div>
+
+      <div class="cont-pad">
+        <h3 class="">Actors</h3>
+        <p>{{details.Actors}}</p>
+      </div>
+
+      <div class="cont-pad">
+        <h3 class="">Directors</h3>
+        <p>{{details.Director}}</p>
+      </div>
+
+      <div class="cont-pad">
+        <h3 class="">Writers</h3>
+        <p>{{details.Writer}}</p>
+      </div>
+
+      <div class="cont-pad">
+        <h3 class="">Awards</h3>
+        <p>{{details.Awards}}</p>
+      </div>
+    </div>
+
+    <div class="col three" ng-include="'rel-results.html'">
+    </div>
+    <div class="ui divider row"></div>
+    <p class="column"></p>
+    <div class="sixteen wide column" ng-include="'rel-links.html'"></div>
+    <p class="column"></p>
+    <div class="ui divider row"></div>
+
+    <div>
+      <div class="footer" ng-include="'about.html'"></div>
+    </div>
+
+
+    <div ng-if="details.Response==='False'">
+      <div class="page-dimmed">
+        <div class="ui inverted active indeterminate loader"></div>
+      </div>
+      <div class="fixed-pos-center">
+        <h2>No Results Found.</h2>
+      </div>
+    </div>
