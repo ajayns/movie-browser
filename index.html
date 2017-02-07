@@ -3,13 +3,54 @@
     <meta charset="utf-8" />
     <title>Movie-Browser</title>
     <link rel="stylesheet" href="style/style.css" />
-
+    <link data-require="font-awesome@*" data-semver="4.5.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" />
 
   </head>
 
   <body ng-controller="mainCtrl">
 
-    <div ng-include="'views/main-info.html'"></div>
+
+   <nav class="accent-color shadow">
+      <div class="cont-body centered row">
+        <div class="two col">&nbsp;</div>
+        <div class="six col inline">
+          <div>
+            Movies <i class="fa fa-caret-down"></i>
+          </div>
+          <div>
+            Television <i class="fa fa-caret-down"></i>
+          </div>
+          <div>
+            People <i class="fa fa-caret-down"></i>
+          </div>
+          <div>
+            Community <i class="fa fa-caret-down"></i>
+          </div>
+        </div>
+        <div class="two col inline">
+          <div>
+            Account <i class="fa fa-caret-down"></i>
+          </div>
+          <div>
+            Help
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <p class="row"></p>
+
+    <div class="cont-body centered row">
+      <div class="two col">imdb</div>
+      <div class="six col">
+        <input class="x-padded search-box invert" placeholder="Enter Movie Name" type="text" onclick="select()" ng-model="searchTerm"  ng-model-options="{ debounce: 800 }"/>
+        <i class="search-icon invert fa fa-search x-padded"></i>
+      </div>
+    </div>
+
+    <img class="bg" ng-src="{{details.Poster}}" />
+
+    <div ng-include="'main-info.html'"></div>
 
     <script data-require="angular.js@1.5.x" src="https://code.angularjs.org/1.5.8/angular.js" data-semver="1.5.8"></script>
     <script src="js/app.js"></script>
