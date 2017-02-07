@@ -6,72 +6,66 @@
 
 <div ng-if="details.Response==='True'">
 
-  <div class="table hor-center">
-    <div class="row">
+  <p class="row right"></p>
 
-      <div class="three col">
+  <div class="cont-body centered">
+    <div class="row">
+      <div class="two col shadow">
         <img alt="Poster" class="img-poster" ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}" />
       </div>
 
-      <div class="seven col vert-center">
-
-        <h2 class="">{{details.Title | uppercase}} </h2>
-        <i>({{details.Year}})</i>
-        <br/>
-        <div class="row invert-text mov-info">
-          <p class="col"><b>Genre:</b> {{details.Genre}}
-            <br/><b>Runtime:</b> {{details.Runtime}}</p>
-          <p class="col"><b>IMDb Rating:</b> {{details.imdbRating}}
-            <br/><b>Rotten Tomatoes:</b> {{details.tomatoRating}}</p>
+      <div class="six col accent-color shadow full-width">
+        <div class="padded">
+          <h2 class="">{{details.Title | uppercase}}</h2>
+          <i class="">({{details.Year}})</i>
+          <hr/>
+          <div class="">{{details.Plot}}</div>
+          <div>
+            <br/>
+            <b>Genre:</b> {{details.Genre}} <br/>
+            <b>Runtime:</b> {{details.Runtime}}
+          </div>
+          <hr/>
+          <div class="row">
+            <div class="col three"><b>IMDb: </b>{{details.imdbRating}}</div>
+            <div class=""><b>Metascore: </b>{{details.Metascore}}</div>
+          </div>
+          <hr/>
+          <div>
+            <b>Actors:</b> {{details.Actors}} <br/>
+            <b>Director:</b> {{details.Director}} <br/>
+            <b>Writers:</b> {{details.Writer}} <br/>
+            <b>Awards:</b> {{details.Awards}}
+          </div>
+          <hr/>
+          <div class="inline">
+            <div>
+              <i class="fa fa-shopping-cart"></i>
+              Buy Now
+            </div>
+            <div>
+              <i class="fa fa-youtube-play"></i>
+              Trailers
+            </div>
+            <div>
+              <i class="fa fa-commenting"></i>
+              Subtitles
+            </div>
+            <div>
+              <i class="fa fa-music"></i>
+              Soundtracks
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="hide-mob row invert-text">
-          {{details.Plot}}
-        </div>
+      <div class="two col">
+        <div class="" ng-include="'rel-results.html'"></div>
       </div>
     </div>
   </div>
 
-  <div class="table row cont-body no-borad">
-    <div class="col seven">
 
-      <div class="cont-pad show-mob">
-        <h3 class="">Plot</h3>
-        <p>{{details.Plot}}</p>
-      </div>
-
-      <div class="cont-pad">
-        <h3 class="">Actors</h3>
-        <p>{{details.Actors}}</p>
-      </div>
-
-      <div class="cont-pad">
-        <h3 class="">Directors</h3>
-        <p>{{details.Director}}</p>
-      </div>
-
-      <div class="cont-pad">
-        <h3 class="">Writers</h3>
-        <p>{{details.Writer}}</p>
-      </div>
-
-      <div class="cont-pad">
-        <h3 class="">Awards</h3>
-        <p>{{details.Awards}}</p>
-      </div>
-    </div>
-
-    <div class="col three" ng-include="'rel-results.html'">
-    </div>
-    <div class="ui divider row"></div>
-    <p class="column"></p>
-    <div class="sixteen wide column" ng-include="'rel-links.html'"></div>
-    <p class="column"></p>
-    <div class="ui divider row"></div>
-
-    <div>
-      <div class="footer" ng-include="'about.html'"></div>
-    </div>
 
 
     <div ng-if="details.Response==='False'">
